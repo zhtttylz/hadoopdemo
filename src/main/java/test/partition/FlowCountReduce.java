@@ -7,21 +7,21 @@ import org.apache.hadoop.mapreduce.Reducer;
 import java.io.IOException;
 import java.util.Iterator;
 
-public class FlowCountReduce extends Reducer<Text, FlowBean, Text, FlowBean> {
+public class FlowCountReduce extends Reducer<Text, FlowBeanCompare, Text, FlowBeanCompare> {
 
     @Override
-    protected void reduce(Text key, Iterable<FlowBean> values, Context context) throws IOException, InterruptedException {
+    protected void reduce(Text key, Iterable<FlowBeanCompare> values, Context context) throws IOException, InterruptedException {
 
 
         long upFlow = 0;
         long downFlow = 0;
 
-        for(FlowBean b : values){
+        for(FlowBeanCompare b : values){
             upFlow += b.getUpFlow();
             downFlow += b.getDownFlow();
         }
 
-        FlowBean b = new FlowBean();
+        FlowBeanCompare b = new FlowBeanCompare();
         b.setDownFlow(downFlow);
         b.setUpFlow(upFlow);
         b.setSumFlow(upFlow + downFlow);

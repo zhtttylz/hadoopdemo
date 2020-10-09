@@ -1,12 +1,13 @@
 package test.partition;
 
 import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class FlowBean implements Writable {
+public class FlowBean implements Writable, WritableComparable<FlowBean>{
 
     private long upFlow;
     private long downFlow;
@@ -64,5 +65,10 @@ public class FlowBean implements Writable {
     @Override
     public String toString() {
         return upFlow + "\t" + downFlow + "\t" + sumFlow;
+    }
+
+    public int compareTo(FlowBean bean) {
+
+        return this.getSumFlow() > bean.getSumFlow() ? -1 : 1;
     }
 }

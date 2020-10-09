@@ -3,10 +3,10 @@ package test.partition;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Partitioner;
 
-public class ProvincePartitioner extends Partitioner<Text, FlowBean> {
+public class ProvincePartitioner extends Partitioner<Text, FlowBeanCompare> {
 
 
-    public int getPartition(Text key, FlowBean value, int numPartitions) {
+    public int getPartition(Text key, FlowBeanCompare value, int numPartitions) {
 
         // 设置分区
         int partition = 4;

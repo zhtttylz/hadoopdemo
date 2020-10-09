@@ -7,9 +7,9 @@ import org.apache.hadoop.mapreduce.Mapper;
 
 import java.io.IOException;
 
-public class FlowCountMapper extends Mapper<LongWritable, Text, Text, FlowBean> {
+public class FlowCountMapper extends Mapper<LongWritable, Text, Text, FlowBeanCompare> {
 
-    private FlowBean v = new FlowBean();
+    private FlowBeanCompare v = new FlowBeanCompare();
     private Text k = new Text();
 
     @Override
