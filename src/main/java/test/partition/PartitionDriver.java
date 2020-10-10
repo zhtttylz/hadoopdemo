@@ -28,15 +28,15 @@ public class PartitionDriver {
 
         // 4设置map的输入输出类
         job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(FlowBeanCompare.class);
+        job.setMapOutputValueClass(FlowBean.class);
 
         // 5 设置最终输出的key value
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(FlowBeanCompare.class);
+        job.setOutputValueClass(FlowBean.class);
 
         // 6 设置自定义数据分区
-        job.setPartitionerClass(ProvincePartitioner.class);
-        job.setNumReduceTasks(5);
+//        job.setPartitionerClass(ProvincePartitioner.class);
+//        job.setNumReduceTasks(5);
 
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
