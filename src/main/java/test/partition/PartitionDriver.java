@@ -6,6 +6,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.log4j.BasicConfigurator;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +20,7 @@ public class PartitionDriver {
 
         // 2 创建job
         Configuration cong = new Configuration();
+        BasicConfigurator.configure();
         Job job = Job.getInstance(cong);
 
         // 3 设置jar包位置，关联map和reduce
