@@ -6,6 +6,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
+import org.apache.log4j.BasicConfigurator;
 import test.partition.FlowCountReduce;
 
 import java.io.File;
@@ -20,6 +21,7 @@ public class FlowCountSortDriver {
 
         // 2 创建job
         Configuration cong = new Configuration();
+        BasicConfigurator.configure();
         Job job = Job.getInstance(cong);
 
         // 添加dirver类 reduce类 map类
