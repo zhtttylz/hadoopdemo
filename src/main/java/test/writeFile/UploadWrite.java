@@ -25,5 +25,16 @@ public class UploadWrite {
 //        HdfsAdmin hdfsAdmin = new HdfsAdmin(URI.create(""), configuration);
 //        hdfsAdmin.
 //        System.out.println(System.nanoTime());
+
+        System.out.println(idToBlockDir(1168208153));
+        System.out.println(idToBlockDir(1191360800));
+
+    }
+
+    public static String idToBlockDir(long blockId) {
+        int d1 = (int)(blockId >> 16 & 255L);
+        int d2 = (int)(blockId >> 8 & 255L);
+        String path = "/subdir" + d1 + "/" + "subdir" + d2 + "/";
+        return path;
     }
 }
