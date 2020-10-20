@@ -11,6 +11,14 @@ public class OrderBean implements WritableComparable<OrderBean> {
     private int order_id;
     private double price;
 
+    public OrderBean() {
+    }
+
+    public OrderBean(int order_id, double price) {
+        this.order_id = order_id;
+        this.price = price;
+    }
+
     /**
      * 先按照id排序，如果相同，按照价格降序排序
      * @param o
@@ -67,5 +75,10 @@ public class OrderBean implements WritableComparable<OrderBean> {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return order_id + "\t" + price;
     }
 }
