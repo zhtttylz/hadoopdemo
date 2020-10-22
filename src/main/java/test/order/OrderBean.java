@@ -12,9 +12,11 @@ public class OrderBean implements WritableComparable<OrderBean> {
     private double price;
 
     public OrderBean() {
+        super();
     }
 
     public OrderBean(int order_id, double price) {
+        super();
         this.order_id = order_id;
         this.price = price;
     }
@@ -42,7 +44,8 @@ public class OrderBean implements WritableComparable<OrderBean> {
 
             if(o.getPrice() > this.price) res = 1;
             if(o.getPrice() < this.price) res = -1;
-            if(o.getPrice() > this.price) res = 0;
+            if(o.getPrice() == this.price) res = 0;
+            //res = o.getPrice() > this.price? 1 : -1;
         }
 
         return res;
