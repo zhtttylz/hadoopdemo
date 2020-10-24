@@ -1,3 +1,4 @@
 /.idea/
 /target/
 /hadoop.iml
+/src/main/java/test/writeFile/

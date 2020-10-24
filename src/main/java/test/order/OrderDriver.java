@@ -41,6 +41,9 @@ public class OrderDriver {
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
+        // 设置分区
+        job.setGroupingComparatorClass(OrderGroupComparator.class);
+
         // 删除输出路径
         File file = new File(args[1]);
 

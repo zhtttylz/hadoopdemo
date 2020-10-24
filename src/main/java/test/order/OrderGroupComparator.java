@@ -13,6 +13,11 @@ public class OrderGroupComparator extends WritableComparator {
     @Override
     public int compare(WritableComparable a, WritableComparable b) {
 
-        return 1;
+        OrderBean a1 = (OrderBean) a;
+        OrderBean b1 = (OrderBean) b;
+
+        if(a1.getOrder_id() > b1.getOrder_id()) return 1;
+        if(a1.getOrder_id() < b1.getOrder_id()) return -1;
+        return 0;
     }
 }

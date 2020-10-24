@@ -31,4 +31,51 @@
     </dependency>
 </dependencies>
 
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <!--下面必须指定好主类-->
+                            <mainClass>test.writeFile.KerberosTest</mainClass>
+                        </manifest>
+                    </archive>
+
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>hadoop-1.0-SNAPSHOT-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+
+            <plugin>
+
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source><!-- 源代码使用的开发版本 -->
+                    <target>1.8</target><!-- 需要生成的目标class文件的编译版本 -->
+                    <!-- 一般而言，target和source保持一致的，但有时候不同：为了让程序能在其他版本的jdk中运行(对于低版本目标jdk，源代码中需要不使用低版本jdk不支持的语法) -->
+                </configuration>
+            </plugin>
+
+        </plugins>
+
+
+    </build>
+
 </project>
